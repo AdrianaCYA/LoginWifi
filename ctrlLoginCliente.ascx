@@ -168,14 +168,10 @@
         <div class = "col-sm-offset-2 col-sm-10" >
             <div class="checkbox">
             <label>
-            <input type="checkbox" required="required" runat="server" id="tos" oninvalid="InvalidMsgCheckPrivacity(this)"> *He leído y acepto la <a  onclick="FnMuestraFormPrivacidad()" >Política de Privacidad</a> CYAMexico<sup>®</sup>.
+                <input type="checkbox" required="required" runat="server" id="tos" oninvalid="InvalidMsgCheckPrivacity(this)"> 
+                He leído y acepto los <a id="TerminosCondiciones" >términos y condiciones,</a> así como el  <a id="AvisoPrivacidad">aviso de privacidad</a> publicado por C&A México.
             </label>
             </div>
-        </div>
-    </div>
-    <div class="form-group" id="DivAvisoPrivacidad">
-        <div class="col-sm-offset-2 col-sm-10">
-          <iframe src="http://publicservicesqa.cyamoda.com/loginclientewifi/privacidad.aspx" style="width: 100%; height: 450px" name="formularios"></iframe>
         </div>
     </div>
     <div class = "form-group">
@@ -201,7 +197,13 @@
     function load() {
         $("#DivAvisoPrivacidad").slideUp("fast", "swing", function () {
         });
-    }
+        $("a#TerminosCondiciones").click(function () {           
+            window.open("https://www.cyamoda.com/content/terminos-condiciones-compra-en-linea","_blank");
+        });
+        $("a#AvisoPrivacidad").click(function () {           
+            window.open("https://www.cyamoda.com/content/privacidad","_blank");
+        });
+    }    
 
     function InvalidMsgEmail(textbox) {
         if (textbox.value == '') {
@@ -508,5 +510,8 @@
     .loading
     {
         display: none;
+    }
+    a{
+        cursor:pointer;
     }
 </style>
